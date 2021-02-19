@@ -1,0 +1,563 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css?family=Underdog&display=swap');
+
+body{
+	font-family: 'Underdog', cursive;
+}
+
+.about_characters{
+	height:670px;
+	background-image:url(images/a.jpg);
+	display:flex;
+}
+
+.characters_menu{
+	width:200px;
+	position:relative;
+}
+
+.characters_container{
+	flex-grow:1;
+    position:relative;
+}
+
+.fab{
+	position:absolute;
+	bottom:30px;
+	left:30px;
+	cursor:pointer;
+}
+
+.fab-buttons{
+	list-style-type:none;	
+	margin-bottom:50px;
+	display:none;
+}
+
+.fab-action-buttom{
+	width:70px;
+	height:70px;
+	background-color:#29B6F6;
+	border-radius:50%;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 
+	0 1px 5px 0 rgba(0, 0, 0, 0.12), 
+	0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	text-align:center;
+	font-size:16pt;
+	padding-top:20px;
+	position:relative;
+}
+
+.fab-action-buttom:before{
+	content:"";
+	display:block;
+	width:76px;
+	height:76px;
+	border-radius:50%;
+	box-shadow: 0px 0px 0px 3px #00A9F2, 0px 0px 8px 2px #A8D8ED;
+	position:absolute;
+	top:-3px;
+	left:-3px;
+	opacity:0;
+	transform:scale(0);
+	transition:all 0.5s linear;
+}
+
+.fab:hover .fab-action-buttom:before{
+	opacity:1;
+	transform:scale(1);
+}
+
+
+.fab:hover .fab-action-buttom{
+	color:white;
+	opacity:1;
+	transform:scale(1);
+}
+
+.fab-buttons-item{
+	width:74px;
+	height:74px;
+	border-radius:50%;
+	border:2px solid black;
+	background-color:#29b6f6;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	margin-bottom:10px;
+	position:relative;
+}
+
+.fab:hover .fab-buttons{
+	display:block;
+}
+
+@keyframes labe_up{
+	0%{transform:scaleY(0.5) scaleX() translateY(40px);}
+	50%{transform:scaleY(1) scaleX(0.5) translateY(40px);}
+	100%{transform:scaleY(1) scaleX(1) translateY(0);}
+}
+
+.fab:hover .fab-buttons-item{
+	animation:labe_up 0.5s linear;
+}
+
+
+.fab-buttons-item:before{
+	content:"";
+	display:block;
+	width:100px;
+	height:30px;
+	padding:0 10px;
+	background-color:black;
+	color:white;
+	position:absolute;
+	right:-130px;
+	bottom:50%;
+	margin-bottom:-15px;
+	opacity:0;
+	transform:scale(0);
+	transition: all 0.5s linear; 
+}
+
+.fab-buttons-item:hover:before{
+	opacity:1;
+	transform:scale(1);
+}
+
+.fab-buttons-item:nth-of-type(1):before{
+	content:"Іккінг";
+}
+.fab-buttons-item:nth-of-type(2):before{
+	content:"Астрід";
+}
+.fab-buttons-item:nth-of-type(3):before{
+	content:"Забіяка";
+}
+.fab-buttons-item:nth-of-type(4):before{
+	content:"Вредіна";
+}
+
+
+
+.tooltip{
+	color: #29B6F6;
+	font-size: 16pt;
+	padding: 20px 45px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	left: 30px;
+	bottom: 130px;
+	animation:tooltip_up 1s linear infinite alternate;
+}
+
+ .tooltip:before{
+	content: "";
+	display: block;
+	width: 40px;
+	height: 25px;
+	transform: skewY(-60deg) skewX(15deg) rotate(100deg);
+	background-color: white;
+	position: absolute;
+	left: 10px;
+	bottom: -7px;
+	
+}
+
+
+.fab:hover .tooltip{
+	display:none;
+}
+
+@keyframes tooltip_up{
+	0%{transform:translateY(-30px);}
+	100%{transform:translateY(20px);}
+}
+
+.character{
+	width: 800px;
+	height: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -400px;
+	background-color: #FFF1E8;
+	z-index:0;
+	box-shadow: 3px 3px 7px black;
+}
+
+.character img{
+	padding: 30px 15px;
+	margin: 30px; 
+	border-bottom: 2px solid #29B6F6;
+	border-top: 2px solid #29B6F6;
+	float: left;
+	
+}
+
+.character h2{
+	margin: 10px;
+}
+
+.character p{
+	margin: 10px;
+}
+
+
+#Hiccup{
+	transform: rotate(-3deg);
+}
+
+#Astrid{
+	transform: rotate(5deg);
+}
+
+#Gruffnut{
+	transform: rotate(-11deg);
+}
+
+#Spitelout{
+	transform: rotate(8deg);
+}
+
+#Hiccup:target{
+	z-index:1;
+	transform: rotate(0deg);
+	animation:ch_up 0.5s linear;
+}
+
+#Astrid:target{	
+	z-index:1;
+	transform: rotate(0deg);
+	animation:ch_up 0.5s linear;
+}
+
+#Gruffnut:target{	
+	z-index:1;
+	transform: rotate(0deg);
+	animation:ch_up 0.5s linear;
+}
+
+#Spitelout:target{
+	z-index:1;
+	transform: rotate(0deg);
+	animation:ch_up 0.5s linear;
+}
+
+@keyframes ch_up{
+	0%{left: 50%;}
+	50%{left: 45%;}
+	100%{left: 50%;}
+}
+
+.about_dragons{	
+	min-height:670px;
+	background-image:url(images/19200626.jpg);
+	background-size:cover;	
+	background-attachment:fixed;
+	padding:30px;
+}
+
+.accordion li{
+	list-style-type:none;
+}
+
+.accordion{
+	width:800px;
+	border:2px solid #6B537C;
+	background-image: linear-gradient(to bottom right, #EAFC83 0%, #9FC6F5 60%, #3366FF 85%, #1F3E9C 100%);
+	margin:0 auto;
+}
+
+.accordion_header{
+	display:flex;
+	align-items:center;
+	height:80px;
+	padding:10px 25px;
+	background-color:#6D537D;	
+	border-top:1px solid #9775AF;
+	border-bottom:1px solid #4f4d5b;
+}
+
+.accordion_header h2{
+	font-size:30px;
+	color:#f4f4f4;	
+	padding-left:20px;
+}
+
+.accordion_header img{
+	width:72px;
+	height:72px;
+	border-radius:50%;
+	border:2px solid #DB6E5E;
+}
+
+.msg{
+	overflow:hidden;
+	max-height:0;
+	opacity:0;
+	transition: all 0.5s linear;
+	transform:translate;
+}
+
+.accordion ul li input:checked ~ div.msg{
+	max-height:800px;
+	opacity:1;
+}
+
+.msg p{
+	padding:10px 20px;
+	font-size:18pt;
+	color:rgba (28, 69, 92, 0.8);
+}
+
+.msg img{
+	float:right;	
+	padding:10px 20px; 
+}
+
+.accordion ul li input{	
+	position:absolute;
+	width:100%;
+	height:80px;
+	opacity:0;
+	cursor:pointer;
+}
+
+
+.accordion ul li {
+	position:relative;
+}
+
+
+.accordion ul li span{
+	width:9px;
+	height:9px;
+	display:block;
+	position:absolute;
+	top:15px;
+	right:30px;
+}
+
+.accordion ul li span:before, .accordion ul li span:after{
+	content:"";
+	display:block;
+	width:3px;
+	height:9px;
+	background-color:#eee;
+	position:absolute;
+	transition:all 0.5s linear;
+}
+
+.accordion ul li span:before{
+	transform:rotate(45deg) translate(3px, 0);
+}
+
+
+.accordion ul li span:after{
+	transform:rotate(-45deg) translate(-3px, 0);
+}
+
+.accordion ul li input:checked ~ span:before{
+	transform:rotate(-45deg) translate(3px, 0);
+}
+
+.accordion ul li input:checked ~ span:after{
+	transform:rotate(45deg) translate(-3px, 0);
+}
+
+
+.about_film{
+	height:670px;	
+	background-image:url(images/poster-kak-priruchit-drakona.jpg);
+	background-size:cover;
+	display:flex;
+}
+
+.about_film input{
+	display:none;
+}
+
+.about_film label{
+	display:block;
+	box-shadow:2px 0 8px black, -2px 0 5px 1px white;
+	cursor:pointer;
+}
+
+.about_film div{
+	background-color:rgba(209, 238, 255, 0.8);
+	width:0;
+	overflow:hidden;
+	transition:width 0.5s linear;
+}
+
+
+#data1:checked ~ div:nth-of-type(1){
+	width:100%;
+}
+
+
+#data2:checked ~ div:nth-of-type(2){
+	width:100%;
+}
+
+#data3:checked ~ div:nth-of-type(3){
+	width:100%;
+}
+
+#data4:checked ~ div:nth-of-type(4){
+	width:100%;
+}
+
+#data5:checked ~ div:nth-of-type(5){
+	width:100%;
+}
+
+#data6:checked ~ div:nth-of-type(6){
+	width:100%;
+}
+
+.about_film div img{
+	padding:30px;
+}
+
+.about_film div p{
+	padding:50px;	
+	font-size:16pt;
+}
+
+div:nth-of-type(3)img, div:nth-of-type(5)img{
+	float:left;	
+}
+
+div:nth-of-type(4)img{
+	float:right;
+}
+
+
+div:nth-of-type(6)img{
+	float:right;
+}
+
+
+header{
+	height:670px;
+	background-image:url(images/618502.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	position:relative;
+}
+
+nav{
+	position:absolute;	
+	top:15px;
+	left:15px;
+}
+
+nav ul{
+	display:flex;
+}
+
+header li{
+	list-style-type:none;
+	margin:20px 40px;
+	font-size:16pt;
+	position:relative;
+}
+
+nav a{
+	text-decoration:none;
+	color:#63C0FF;
+	display:block;
+	position:relative;
+	z-index:2;
+}
+
+
+header li:after{	
+	content:"";
+	display:block;
+	width:100%;	
+	height:0%;
+	background-color:#63C0FF;
+	position:absolute;
+	top:0;
+	left:0;
+	transition:all 0.3s linear;
+}
+
+
+header li:hover:after{
+	height:100%;
+}
+
+header li:hover:before{
+	width:100%;
+}
+
+header li:hover a{
+	color:black;
+}
+
+
+header li:before{
+	content:"";
+	display:block;
+	width:0%;	
+	height:120%;
+	border-top:2px solid #63C0FF;
+	border-bottom:2px solid #63C0FF;
+	position:absolute;
+	top:50%;
+	right:50%;
+	transform:translate(50%,-50%);
+	transition:all 0.3s linear;
+}	
+
+
+.text_back{
+	position:absolute;
+	top:400px;
+	right:100px;
+	line-height:1;
+	color:#63c0ff;
+	font-size:50pt;
+	background-image:url(images/poster-kak.jpg);	
+	background-size:cover;	
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	
+}
+
+
+header span{
+	font-size:90pt;	
+}
+
+.text_front{
+	position:absolute;
+	top:400px;
+	right:100px;
+	font-size:50pt;
+	color:#63c0ff;
+	line-height:1;
+	mix-blend-mode:color;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
